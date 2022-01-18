@@ -348,13 +348,16 @@ export function AddMemberInnerDialog({
     onSearchChange(query)
   }
 
-  const addOrRemoveMember = useCallback((contact: JsonContact) => {
-    if (contactIdsToAdd.findIndex(c => c.id === contact.id) === -1) {
-      setContactIdsToAdd([...contactIdsToAdd, contact])
-    } else {
-      setContactIdsToAdd(contactIdsToAdd.filter(c => c.id !== contact.id))
-    }
-  }, [contactIdsToAdd])
+  const addOrRemoveMember = useCallback(
+    (contact: JsonContact) => {
+      if (contactIdsToAdd.findIndex(c => c.id === contact.id) === -1) {
+        setContactIdsToAdd([...contactIdsToAdd, contact])
+      } else {
+        setContactIdsToAdd(contactIdsToAdd.filter(c => c.id !== contact.id))
+      }
+    },
+    [contactIdsToAdd]
+  )
 
   const tx = window.static_translate
 
